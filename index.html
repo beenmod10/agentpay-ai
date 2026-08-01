@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgentPay AI</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentPay AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="card">
-<h1>🤖 AgentPay AI</h1>
-<p>Autonomous AI Agent for Secure USDC Payments</p>
+<div class="container">
+  <h1>🤖 AgentPay AI</h1>
+  <p>Autonomous AI USDC Payment Agent</p>
 
-<div class="status">
-🟢 AI Agent Online
-</div>
+  <div class="card">
+    <h2>Wallet Balance</h2>
+    <h1>1,250 USDC</h1>
+  </div>
 
-<input type="text" id="wallet" placeholder="Recipient Wallet Address">
+  <div class="card">
+    <h3>AI Status</h3>
+    <p>🟢 Online</p>
+  </div>
 
-<input type="number" id="amount" placeholder="USDC Amount">
+  <input id="wallet" type="text" placeholder="Recipient Wallet">
 
-<select id="network">
-<option>Base</option>
-<option>Ethereum</option>
-<option>Solana</option>
-</select>
+  <input id="amount" type="number" placeholder="USDC Amount">
 
-<button onclick="sendPayment()">
-Send Payment
-</button>
+  <button onclick="sendPayment()">Send USDC</button>
 
-<div id="message"></div>
+  <h3 id="status"></h3>
 
-<h3>Recent Transactions</h3>
-
-<ul id="history">
-<li>✅ 10 USDC → 0x7A...F2</li>
-<li>✅ 5 USDC → 0x1B...9D</li>
-</ul>
+  <div class="card">
+      <h3>AI Activity</h3>
+      <ul id="logs">
+          <li>Wallet Connected ✅</li>
+      </ul>
+  </div>
 
 </div>
 
