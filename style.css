@@ -1,42 +1,62 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+body{
+margin:0;
+font-family:Arial;
+background:#081322;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-.container {
-  text-align: center;
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
+.card{
+background:#15233a;
+padding:30px;
+border-radius:20px;
+width:340px;
+text-align:center;
+color:white;
+box-shadow:0 0 20px rgba(0,0,0,.5);
 }
 
-h1 {
-  color: #38bdf8;
+h1{
+color:#32b5ff;
 }
 
-button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
+.status{
+color:#00ff99;
+margin:15px;
+font-weight:bold;
 }
 
-button:hover {
-  background: #1d4ed8;
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:10px;
 }
 
-#status {
-  margin-top: 20px;
-  font-weight: bold;
+button{
+width:100%;
+padding:14px;
+background:#2563eb;
+color:white;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+#message{
+margin-top:15px;
+font-weight:bold;
+}
+
+ul{
+text-align:left;
+margin-top:20px;
 }
