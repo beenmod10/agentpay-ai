@@ -1,30 +1,52 @@
+let balance = 1250;
+
 function sendPayment() {
     const wallet = document.getElementById("wallet").value;
     const amount = parseFloat(document.getElementById("amount").value);
+
     const status = document.getElementById("status");
     const logs = document.getElementById("logs");
+    const history = document.getElementById("history");
+    const balanceText = document.getElementById("balance");
 
     if (!wallet || !amount) {
-        status.innerHTML = "❌ Please enter wallet and amount.";
+        status.innerHTML = "❌ Please fill all fields.";
         return;
     }
 
-    logs.innerHTML += "<li>🔍 Running AI Risk Check...</li>";
+    if (amount > balance) {
+        status.innerHTML = "❌ Insufficient Balance";
+        return;
+    }
+
+    logs.innerHTML += "<li>🔍 AI checking payment...</li>";
 
     setTimeout(() => {
-        if (amount > 100) {
-            status.innerHTML = "⚠️ Payment Blocked: High Risk Detected!";
-            logs.innerHTML += "<li>❌ Risk detected. Payment rejected.</li>";
-        } else {
-            const txId = "0x" + Math.random().toString(16).substring(2, 14);
 
-            status.innerHTML =
-                "✅ " + amount + " USDC sent successfully!<br><br>" +
-                "<strong>Transaction ID:</strong><br>" + txId;
+        if (amount > 100) {
+
+            status.innerHTML="⚠️ High Risk Payment Blocked";
+
+            logs.innerHTML += "<li>❌ Risk detected</li>";
+
+        } else {
+
+            balance -= amount;
+
+            balanceText.innerHTML = balance + " USDC";
+
+            const tx="0x"+Math.random().toString(16).substring(2,14);
+
+            status.innerHTML="✅ Payment Successful";
+
+            history.innerHTML =
+            "<li>"+amount+" USDC → "+wallet.substring(0,6)+"... | "+tx+"</li>"
+            + history.innerHTML;
 
             logs.innerHTML += "<li>✅ Payment Approved</li>";
-            logs.innerHTML += "<li>💸 Sent " + amount + " USDC</li>";
-            logs.innerHTML += "<li>🧾 TX: " + txId + "</li>";
+
         }
-    }, 2000);
+
+    },2000);
+
 }
