@@ -1,10 +1,27 @@
-const payBtn = document.getElementById("payBtn");
-const status = document.getElementById("status");
+function sendPayment(){
 
-payBtn.addEventListener("click", () => {
-  status.textContent = "⏳ Processing Payment...";
+const wallet=document.getElementById("wallet").value;
+const amount=document.getElementById("amount").value;
 
-  setTimeout(() => {
-    status.textContent = "✅ Payment Sent Successfully!";
-  }, 2000);
-});
+if(wallet==""||amount==""){
+document.getElementById("message").innerHTML="❌ Fill all fields";
+return;
+}
+
+document.getElementById("message").innerHTML="⏳ AI Agent Processing...";
+
+setTimeout(function(){
+
+document.getElementById("message").innerHTML="✅ "+amount+" USDC Sent Successfully!";
+
+const history=document.getElementById("history");
+
+let item=document.createElement("li");
+
+item.innerHTML="✅ "+amount+" USDC → "+wallet.substring(0,6)+"...";
+
+history.prepend(item);
+
+},2000);
+
+}
